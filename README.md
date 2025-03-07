@@ -6,7 +6,7 @@ ADF, Spark and SQL for 850 EDI end to end
 - **Databricks PySpark Script**: Transforms EDI 850 (X12 format) into structured JSON format
 - **SQL Queries**: Loads and processes transformed JSON data into Azure Synapse Analytics.
 
-  ## 1. Azure Data Factory Pipeline (pipeline.json)
+  ##Azure Data Factory Pipeline (pipeline.json)
 ```json
 {
   "name": "Ingest_EDI_850",
