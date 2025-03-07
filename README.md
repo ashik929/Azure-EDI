@@ -25,15 +25,18 @@ ADF, Spark and SQL for 850 EDI end to end
 }
 
 ## 2. Databricks Notebook: Transform EDI 850 to JSON (transform_edi.py)
+
 ```python
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.appName("EDI850_Processing").getOrCreate()
 
 # Load EDI 850 file from ADLS
+
 edi_df = spark.read.text("abfss://edi-container@storageaccount.dfs.core.windows.net/edi850.txt")
 
 # Transform EDI to JSON (Basic Example)
+
 def parse_edi850(row):
     segments = row.value.split("~")
     json_data = {seg[:2]: seg[3:] for seg in segments if len(seg) > 2}
@@ -59,3 +62,5 @@ FROM OPENROWSET(
     BULK 'https://storageaccount.blob.core.windows.net/edi850_json/*.json',
     FORMAT='CSV'
 ) AS edi_json;
+
+
